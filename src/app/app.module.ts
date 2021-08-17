@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FamilyMembersModule } from './family-members/family-members.module';
@@ -21,7 +21,8 @@ import { TransactionsModule } from './transactions/transactions.module';
     FooterModule,
     FamilyMembersModule,
     TransactionsModule,
-    StatisticsModule
+    StatisticsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

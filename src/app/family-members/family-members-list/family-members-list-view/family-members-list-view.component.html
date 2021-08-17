@@ -1,0 +1,9 @@
+<ul *ngIf="familyMembers; else error">
+    <li *ngFor="let familyMember of familyMembers">
+        {{familyMember.name}} <button>Select</button>
+    </li>
+</ul>
+
+<ng-template #error>
+    <h5 class="error">Cannot get Family Members from database</h5>
+</ng-template>
