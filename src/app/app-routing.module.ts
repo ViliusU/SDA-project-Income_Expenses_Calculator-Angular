@@ -11,8 +11,8 @@ const routes: Routes = [
       {
         path:'familyMembers',
         loadChildren:() => import('./family-members/family-members.module').then(m => m.FamilyMembersModule)
-      }
-    ]
+      },
+        ]
   }
 
 
