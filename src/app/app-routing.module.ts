@@ -6,17 +6,25 @@ import { TransactionsComponent } from './transactions/transactions.component';
 
 const routes: Routes = [
   {
-    path:'family-members',
-    component: FamilyMembersComponent
-  },
-  {
-    path:'transactions',
-    component: TransactionsComponent
-  },
-  {
-    path:'statistics',
-    component: StatisticsComponent
+    path:'',
+    children:[
+      {
+        path:'familyMembers',
+        loadChildren:() => import('./family-members/family-members.module').then(m => m.FamilyMembersModule)
+      }
+    ]
   }
+
+
+
+  // {
+  //   path:'transactions',
+  //   component: TransactionsComponent
+  // },
+  // {
+  //   path:'statistics',
+  //   component: StatisticsComponent
+  // }
 ];
 
 @NgModule({
