@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FamilyMembersModule } from './family-members/family-members.module';
 import { FooterModule } from './footer/footer.module';
 import { HeaderModule } from './header/header.module';
+import { StatisticsModule } from './statistics/statistics.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HeaderModule } from './header/header.module';
     AppRoutingModule,
     HeaderModule,
     FooterModule,
-    FamilyMembersModule
+    FamilyMembersModule,
+    TransactionsModule,
+    StatisticsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
