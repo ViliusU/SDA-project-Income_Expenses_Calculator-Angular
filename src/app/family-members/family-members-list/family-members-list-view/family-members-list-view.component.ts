@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FamilyMember } from '../../shared/inerfaces/familyMember.interface';
 
 @Component({
@@ -8,9 +9,15 @@ import { FamilyMember } from '../../shared/inerfaces/familyMember.interface';
 })
 export class FamilyMembersListViewComponent implements OnInit {
   @Input() familyMembers: FamilyMember[] | undefined | null
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void { console.log(this.familyMembers)
+  }
+
+  navigateToFamilyMemberById(familyMemberId: number) :void{
+    // turi nunaviguoti i familyMember su familyMember id
+    this.router.navigate(['/familyMembers/familyMember', familyMemberId])
   }
 
 }

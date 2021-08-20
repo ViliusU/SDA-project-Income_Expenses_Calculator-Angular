@@ -1,9 +1,40 @@
-<ul *ngIf="familyMembers; else error">
-    <li *ngFor="let familyMember of familyMembers">
-        {{familyMember.name}} <button>Select</button>
-    </li>
-</ul>
+<div class="container" id="main-container">
+  <div class="row">
+    <div *ngFor="let familyMember of familyMembers" class="col-md-6 col-xl-3">
+      <div class="card m-b-1">
+        <div class="card-body row">
+          <div class="col-10 card-title align-self-center mb-0">
+              <h3>{{familyMember.name}}</h3>
+          </div>
+        </div>
+            <div class="card-body">
+          <div class="float-right btn-group btn-group-sm">
+              <button type="button" class="btn btn-outline-secondary" (click)="navigateToFamilyMemberById(familyMember.id)">Edit</button>                  
+              <!-- <button type="button" class="btn btn-outline-secondary">Delete</button>                </div> -->
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
 
-<ng-template #error>
-    <h5 class="error">Cannot get Family Members from database</h5>
-</ng-template>
+
+
+<!-- How to make router link  -->
+
+<!-- <div class="container" id="main-container">
+  <div class="row">
+    <div *ngFor="let familyMember of familyMembers" class="col-md-6 col-xl-3">
+      <div class="card m-b-1">
+        <div class="card-body row">
+          <div class="col-10 card-title align-self-center mb-0">
+              <h3>{{familyMember.name}}</h3>
+          </div>
+        </div>
+            <div class="card-body">
+          <div class="float-right btn-group btn-group-sm">
+            <a [routerLink]="['/familyMembers/familyMember', familyMember.id]"> {{familyMember.name}} </a>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div> -->

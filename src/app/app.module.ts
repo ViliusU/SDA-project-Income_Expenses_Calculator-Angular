@@ -8,6 +8,7 @@ import { FooterModule } from './footer/footer.module';
 import { HeaderModule } from './header/header.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { TransactionsModule } from './transactions/transactions.module';
+import { FamilyMembersService } from './family-members/shared/services/family-members.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { TransactionsModule } from './transactions/transactions.module';
     StatisticsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [FamilyMembersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
