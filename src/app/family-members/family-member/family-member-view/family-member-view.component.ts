@@ -9,7 +9,7 @@ import { FamilyMember } from '../../shared/inerfaces/familyMember.interface';
 })
 export class FamilyMemberViewComponent implements OnInit {
   @Input() familyMember: FamilyMember | undefined | null | any;
-  @Input() isNewFamilyMember: boolean | undefined;
+  @Input() isNewFamilyMember: boolean = true;
 
   @Output() updateFamilyMember = new EventEmitter<FamilyMember>();
   @Output() deleteFamilyMember = new EventEmitter<number>();

@@ -7,7 +7,7 @@ const familyMember = {
 }
 
 const newFamilyMember = {
-    path: 'list/familyMember/new'
+    path: 'familyMember/new'
 }
 
 export const FamilyMembersPaths = {

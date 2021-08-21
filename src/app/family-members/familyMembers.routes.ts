@@ -14,18 +14,25 @@ export const FamilyMembersRoutes: Routes = [
                 //familyMembers/list
                 path: '',
                 pathMatch: 'full',
-                redirectTo: FamilyMembersPaths.familyMembersList.path
+                // redirectTo: FamilyMembersPaths.familyMembersList.path
+                redirectTo: 'list'
             },
             {
-                path: FamilyMembersPaths.familyMembersList.path,
+                //familyMembers/list
+                path: 'list',
+                // path: FamilyMembersPaths.familyMembersList.path,
                 component: FamilyMembersListComponent
             },
             {
-                path: FamilyMembersPaths.familyMember.path,
+                //familyMembers/familyMembers/id
+                path: 'familyMember/:id',
+                // path: FamilyMembersPaths.familyMember.path,
                 component: FamilyMemberComponent
             },
             {
-                path: FamilyMembersPaths.newFamilyMember.path,
+                //familyMembers/familyMember/new
+                path: 'familyMember/new',
+                // path: FamilyMembersPaths.newFamilyMember.path,
                 component: NewFamilyMemberComponent
             }
             

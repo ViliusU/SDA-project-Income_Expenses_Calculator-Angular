@@ -17,8 +17,9 @@ export class FamilyMembersListViewComponent implements OnInit {
   }
 
   navigateToFamilyMemberById(familyMemberId: number) :void{
+    console.log(familyMemberId)
     // turi nunaviguoti i familyMember su familyMember id
-    this.router.navigate(['/familyMembers/familyMember', familyMemberId])
+    this.router.navigate(['familyMembers/familyMember', familyMemberId])
   }
 
 }

@@ -1,6 +1,7 @@
-<form *ngIf="familyMember; else loading" [formGroup]="familyMemberForm">
+<!-- *ngIf="familyMember; else loading" -->
+<form  [formGroup]="familyMemberForm">
     <div>
-        <label>Famile member's name:
+        <label>Family member's name:
             <input formControlName="name">
         </label>
         <div *ngIf="familyMemberForm.get('name')?.errors?.required

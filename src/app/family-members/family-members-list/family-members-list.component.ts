@@ -23,6 +23,6 @@ export class FamilyMembersListComponent implements OnInit {
   }
 
   navigateToNewFamilyMember(): void {
-    this.router.navigate([FamilyMembersPaths.newFamilyMember.path])
+    this.router.navigate(['familyMembers/familyMember/new'])
   }
 }
