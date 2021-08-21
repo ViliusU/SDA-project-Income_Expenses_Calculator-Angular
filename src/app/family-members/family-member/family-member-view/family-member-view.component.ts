@@ -25,8 +25,9 @@ export class FamilyMemberViewComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes)
     if (changes.familyMember.currentValue) {
-      this.familyMemberForm.patchValue(this.familyMember.currentValue);
+      this.familyMemberForm.patchValue(this.familyMember);
     }
   }
 
