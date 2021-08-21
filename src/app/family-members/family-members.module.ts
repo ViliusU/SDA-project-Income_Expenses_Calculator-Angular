@@ -5,6 +5,7 @@ import { FamilyMembersListModule } from './family-members-list/family-members-li
 import { RouterModule } from '@angular/router';
 import { FamilyMembersRoutes } from './familyMembers.routes';
 import { FamilyMemberModule } from './family-member/family-member.module';
+import { NewFamilyMemberModule } from './new-family-member/new-family-member.module';
 
 
 
@@ -14,6 +15,7 @@ import { FamilyMemberModule } from './family-member/family-member.module';
     CommonModule,
     FamilyMembersListModule,
     FamilyMemberModule,
+    NewFamilyMemberModule,
     RouterModule.forChild(FamilyMembersRoutes)],
   exports: [FamilyMembersComponent]
 })

@@ -29,7 +29,7 @@
 
     <button [disabled]="familyMemberForm.invalid"
             (click)="onSubmitClick()">Submit</button>
-    <button (click)="onDeleteClick()">Delete</button>
+    <button (click)="onDeleteClick()" *ngIf="!isNewFamilyMember">Delete</button>
 
 
 </form>

@@ -32,4 +32,8 @@ export class FamilyMembersService {
     return this.httpClient.delete<void>(`${this.apiServerUrl}/api/v1/familyMember/${familyMemberId}`);
   }
 
+  createFamilyMember(familyMember: FamilyMember): Observable<FamilyMember> {
+    return this.httpClient.post<FamilyMember>(`${this.apiServerUrl}/api/v1/familyMember`, familyMember);
+  }
+
 }

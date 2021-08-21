@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FamilyMembersPaths } from '../../family-members-paths.const';
 import { FamilyMember } from '../../shared/inerfaces/familyMember.interface';
 
 @Component({

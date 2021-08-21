@@ -9,23 +9,24 @@ import { FamilyMember } from '../../shared/inerfaces/familyMember.interface';
 })
 export class FamilyMemberViewComponent implements OnInit {
   @Input() familyMember: FamilyMember | undefined | null | any;
+  @Input() isNewFamilyMember: boolean | undefined;
+
   @Output() updateFamilyMember = new EventEmitter<FamilyMember>();
   @Output() deleteFamilyMember = new EventEmitter<number>();
+  
+  constructor(private formBuilder: FormBuilder) { }
 
   familyMemberForm = this.formBuilder.group({
     name: [, [Validators.required, Validators.maxLength(20)]]
   })
-  
-  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     console.log(this.familyMemberForm)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
     if (changes.familyMember.currentValue) {
-      this.familyMemberForm.patchValue(this.familyMember);
+      this.familyMemberForm.patchValue(this.familyMember.currentValue);
     }
   }
 

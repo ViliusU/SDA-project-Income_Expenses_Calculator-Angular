@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable } from 'rxjs';
 import { FamilyMember } from '../shared/inerfaces/familyMember.interface';
 import { FamilyMembersService } from '../shared/services/family-members.service';
 
@@ -24,11 +24,14 @@ export class FamilyMemberComponent implements OnInit {
   }
 
   onUpdateFamilyMember(familyMember: FamilyMember) :void{
-    this.familyMembersService.updateFamilyMember(familyMember).subscribe(()=> this.router.navigate(['familyMembers']))
+    this.familyMembersService.updateFamilyMember(familyMember).subscribe(
+      ()=> this.router.navigate(['familyMembers'])
+      )
   }
 
   onDeleteFamilyMember(familyMemberId: number ): void {
-    this.familyMembersService.deleteFamilyMember(familyMemberId).subscribe(()=> this.router.navigate(['familyMembers'])) 
+    this.familyMembersService.deleteFamilyMember(familyMemberId).subscribe(
+      ()=> this.router.navigate(['familyMembers'])) 
   }
 }
 

@@ -3,6 +3,7 @@ import { FamilyMemberComponent } from "./family-member/family-member.component";
 import { FamilyMembersListComponent } from "./family-members-list/family-members-list.component";
 import { FamilyMembersPaths } from "./family-members-paths.const";
 import { FamilyMembersComponent } from "./family-members.component";
+import { NewFamilyMemberComponent } from "./new-family-member/new-family-member.component";
 
 export const FamilyMembersRoutes: Routes = [
     {
@@ -22,6 +23,10 @@ export const FamilyMembersRoutes: Routes = [
             {
                 path: FamilyMembersPaths.familyMember.path,
                 component: FamilyMemberComponent
+            },
+            {
+                path: FamilyMembersPaths.newFamilyMember.path,
+                component: NewFamilyMemberComponent
             }
             
         ]
