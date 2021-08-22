@@ -4,6 +4,7 @@ import { TransactionsComponent } from './transactions.component';
 import { TransactionsListModule } from './transactions-list/transactions-list.module';
 import { TransactionsRoutes } from './transactions.routes';
 import { RouterModule } from '@angular/router';
+import { TransactionModule } from './transaction/transaction.module';
 
 
 
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     TransactionsListModule,
+    TransactionModule,
     RouterModule.forChild(TransactionsRoutes)
   ],
   exports: [TransactionsComponent]

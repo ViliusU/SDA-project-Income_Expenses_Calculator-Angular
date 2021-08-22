@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { Transaction } from '../../shared/interfaces/transaction.interface';
-import { TransactionsService } from '../../shared/services/transactions.service';
+import { TransactionsPaths } from '../../transactions.paths.const';
 
 @Component({
   selector: 'app-transactions-list-view',
@@ -11,9 +11,19 @@ import { TransactionsService } from '../../shared/services/transactions.service'
 export class TransactionsListViewComponent implements OnInit {
   @Input() transactions: Transaction[] | undefined | null
 
-  constructor() { }
+  constructor(
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
+    console.log(this.transactions)
   }
+
+  navigateToTransactionId(transactionId: number) :void{
+    console.log(transactionId)
+    this.router.navigate(['transaction', transactionId])
+  }
+
+  // 'transactions/transaction'
 
 }

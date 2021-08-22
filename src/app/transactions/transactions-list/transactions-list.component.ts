@@ -12,7 +12,7 @@ export class TransactionsListComponent implements OnInit {
   transactions$: Observable<Transaction[]> | undefined
 
   constructor(
-    private transactionsService: TransactionsService
+    private transactionsService: TransactionsService,
   ) { }
 
   ngOnInit(): void {
