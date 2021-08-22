@@ -1,4 +1,4 @@
 export interface FamilyMember {
-    id: number,
+    id: number;
     name: string
 }
