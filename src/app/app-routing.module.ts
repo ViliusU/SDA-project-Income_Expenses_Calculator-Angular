@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FamilyMembersComponent } from './family-members/family-members.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { TransactionsComponent } from './transactions/transactions.component';
+import { TransactionsModule } from './transactions/transactions.module';
 
 const routes: Routes = [
   {
@@ -12,6 +10,10 @@ const routes: Routes = [
         path:'familyMembers',
         loadChildren:() => import('./family-members/family-members.module').then(m => m.FamilyMembersModule)
       },
+      {
+        path:'transactions',
+        loadChildren:() => import('./transactions/transactions.module').then(m => TransactionsModule)
+      }
         ]
   }
 
@@ -20,7 +22,8 @@ const routes: Routes = [
   // {
   //   path:'transactions',
   //   component: TransactionsComponent
-  // },
+  // }
+  ,
   // {
   //   path:'statistics',
   //   component: StatisticsComponent
