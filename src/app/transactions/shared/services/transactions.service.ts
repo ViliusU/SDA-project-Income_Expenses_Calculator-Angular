@@ -7,7 +7,7 @@ import { Transaction } from '../interfaces/transaction.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class TransactionsServiceService {
+export class TransactionsService {
 
   private apiServerUrl = environment.apiBaseUrl;
 
