@@ -25,7 +25,7 @@ export class FamilyMembersService {
   }
   
   updateFamilyMember(familyMember: FamilyMember): Observable<FamilyMember>{
-    return this.httpClient.put<FamilyMember>(`${this.apiServerUrl}/api/v1/familyMember/update`, familyMember);
+    return this.httpClient.put<FamilyMember>(`${this.apiServerUrl}/api/v1/familyMember`, familyMember);
   }
 
   deleteFamilyMember(familyMemberId: number): Observable<void> {
