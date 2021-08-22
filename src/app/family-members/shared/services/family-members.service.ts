@@ -18,7 +18,7 @@ export class FamilyMembersService {
   }
 
   getFamilyMemberById(familyMemberId: string | null): Observable<FamilyMember>{
-    return this.httpClient.get<FamilyMember>(`${this.apiServerUrl}/api/v1/familyMember/${familyMemberId}`)
+    return this.httpClient.get<FamilyMember>(`${this.apiServerUrl}/api/v1/familyMember/${familyMemberId}`);
 
     // arba
     // return this.httpClient.get<FamilyMember>('http://localhost:8080/api/v1/familyMember/' + familyMemberId)
