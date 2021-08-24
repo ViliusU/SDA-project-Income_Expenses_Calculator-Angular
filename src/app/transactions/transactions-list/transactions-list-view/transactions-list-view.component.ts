@@ -20,7 +20,6 @@ export class TransactionsListViewComponent implements OnInit {
   }
 
   navigateToTransactionId(transactionId: number) :void{
-    console.log(transactionId)
     this.router.navigate(['transactions/transaction', transactionId])
   }
 

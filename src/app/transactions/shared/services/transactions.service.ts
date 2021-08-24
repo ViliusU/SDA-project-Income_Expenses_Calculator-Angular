@@ -17,6 +17,10 @@ export class TransactionsService {
     return this.httpClient.get<Transaction[]>(`${this.apiServerUrl}/api/v1/moneyTransaction`);
   }
 
+  getTransactionById(transactionId: string | null): Observable<Transaction> {
+    return this.httpClient.get<Transaction>(`${this.apiServerUrl}/api/v1/moneyTransaction/${transactionId}`);
+  }
+
   updateTransaction(transaction: Transaction): Observable<Transaction>{
     return this.httpClient.put<Transaction>(`${this.apiServerUrl}/api/v1/moneyTransaction`, transaction);
   }

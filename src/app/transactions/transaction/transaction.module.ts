@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TransactionComponent } from './transaction.component';
-import { RouterModule } from '@angular/router';
-import { TransactionViewModule } from './transaction-view/transaction-view.module';
+import { TransactionViewComponent } from './transaction-view/transaction-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [TransactionComponent],
-  imports: [CommonModule, RouterModule, TransactionViewModule],
+  declarations: [TransactionComponent, TransactionViewComponent],
+  imports: [CommonModule, ReactiveFormsModule],
   exports: [TransactionComponent]
 })
 export class TransactionModule { }
