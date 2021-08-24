@@ -25,8 +25,8 @@ export const TransactionsRoutes: Routes = [
             },
             {
                 path:
-                // TransactionsPaths.transaction.path
-                'transaction/:id'
+                TransactionsPaths.transaction.path
+                // 'transaction/:id'
                 ,
                 component: TransactionComponent
             }
