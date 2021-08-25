@@ -22,9 +22,10 @@
                     <select formControlName="transactionType">
                         <!-- <option [ngValue]="'income'">Income</option>
                         <option [ngValue]="'expenses'">Expenses</option> -->
-                            <option [ngValue]="">{{transaction.type}}</option>
-                            <option [ngValue]=""> {{transaction.type}}</option>
                         
+                        <ng-container *ngFor="let transaction of transactions">
+                            <option>{{transaction.transactionType}}</option>
+                        </ng-container>
 
                     </select>
 
@@ -57,7 +58,7 @@
                     </select> -->
                 </td>
                 <td>
-                    
+                        
                 </td>
                 <td><button type="button" class="btn btn-outline-secondary"
                     [disabled]="!transactionForm.valid">Submit</button>
@@ -68,9 +69,9 @@
         </table>
         </div>
 
-<!-- <div>{{transactionForm.get('amount')?.value}}</div>
-<div>{{transactionForm.get('amount')?.errors}}</div>
-<div>{{transactionForm.get('amount')?.valid}}</div> -->
+<div>{{transactionForm.get('transactionType')?.value}}</div>
+<div>{{transactionForm.get('transactionType')?.errors}}</div>
+<div>{{transactionForm.get('transactionType')?.valid}}</div>
 
 
 

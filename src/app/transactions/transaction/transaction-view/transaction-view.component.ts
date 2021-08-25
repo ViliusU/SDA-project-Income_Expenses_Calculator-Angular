@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Transaction } from '../../shared/interfaces/transaction.interface';
+import { TransactionsService } from '../../shared/services/transactions.service';
 
 @Component({
   selector: 'app-transaction-view',
@@ -9,6 +11,10 @@ import { Transaction } from '../../shared/interfaces/transaction.interface';
 })
 export class TransactionViewComponent implements OnInit {
   @Input() transaction: Transaction | undefined | null | any;
+  @Input() transactions: Transaction[] | undefined | null;
+  
+  transactions$: Observable<Transaction[]> | undefined;
+
 
   transactionForm = this.formBuilder.group({
     transactionType: [],
@@ -20,10 +26,16 @@ export class TransactionViewComponent implements OnInit {
     })
   })
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private transactionsService: TransactionsService
+    ) { }
 
   ngOnInit(): void {
     console.log(this.transactionForm)
+
+    this.transactions$ = this.transactionsService.getTransactions();
+
   }
 
   ngOnChanges(changes: SimpleChanges): void{

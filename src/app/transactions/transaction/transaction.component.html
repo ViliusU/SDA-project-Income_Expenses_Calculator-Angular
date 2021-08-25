@@ -1,2 +1,5 @@
 <p>transaction works!</p>
-<app-transaction-view [transaction]="transaction$ | async"></app-transaction-view>
+<app-transaction-view
+[transaction]="transaction$ | async"
+[transactions]="transactions$ | async"
+></app-transaction-view>

@@ -10,7 +10,7 @@ export interface Transaction {
     }
 }
 
-// export interface TransactionFamilyMemer {
-//     id: number;
-//     name: string
-// }
+export interface TransactionFamilyMember {
+    id: number;
+    name: string
+}
