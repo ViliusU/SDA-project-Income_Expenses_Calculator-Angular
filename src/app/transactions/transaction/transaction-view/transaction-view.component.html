@@ -1,7 +1,7 @@
 <form [formGroup]="transactionForm">
 
     <div class="table">
-        <table class="table table-hover">
+        <table class="table">
             <thead >
               <tr>
                 <th scope="col">Transaction id</th>
@@ -19,16 +19,11 @@
                     {{transaction.id}}
                 </th>
                 <td>
-                    <select formControlName="transactionType">
-                        <!-- <option [ngValue]="'income'">Income</option>
-                        <option [ngValue]="'expenses'">Expenses</option> -->
-                        
-                        <ng-container *ngFor="let transaction of transactions">
-                            <option>{{transaction.transactionType}}</option>
-                        </ng-container>
-
-                    </select>
-
+                    {{transaction.transactionType.name}}
+                    <!-- <select formControlName="TransactionType.name">                      
+                            <option [ngValue]="'Income'">Income</option>
+                            <option [ngValue]="'Expense'">Expense</option>
+                    </select> -->
                 </td>
                 <td>
                     <input formControlName="description">
@@ -52,16 +47,23 @@
                     <input formControlName="transactionDate">
                 </td>
                 <td>
-                    <!-- <select formControlName="FamilyMember">
-                        <option [ngValue]="'income'">Income</option>
-                        <option [ngValue]="'expenses'">Expenses</option>
+                    {{transaction.familyMember.name}}
+
+                    <!-- <div>{{transactionForm.get('familyMember.name')?.value}}</div>
+                    <div>Change to</div>
+                    <select formControlName="familyMember.name">
+                        <ng-container *ngFor="let familyMember of (familyMembers$ | async)">
+                            <option [ngValue]="familyMember.id">{{familyMember.name}}</option>
+                        </ng-container>                        
                     </select> -->
+
                 </td>
                 <td>
                         
                 </td>
                 <td><button type="button" class="btn btn-outline-secondary"
-                    [disabled]="!transactionForm.valid">Submit</button>
+                    [disabled]="!transactionForm.valid"
+                    (click)="onSubmitClick">Submit</button>
                     <button type="button" class="btn btn-outline-secondary">Delete</button>
                 </td>
               </tr>
@@ -69,10 +71,10 @@
         </table>
         </div>
 
-<div>{{transactionForm.get('transactionType')?.value}}</div>
+<!-- <div>{{transactionForm.get('familyMember.name')?.value}}</div>
+<div>{{transactionForm.get('transactionType.name')?.value}}</div>
+
 <div>{{transactionForm.get('transactionType')?.errors}}</div>
-<div>{{transactionForm.get('transactionType')?.valid}}</div>
-
-
+<div>{{transactionForm.get('transactionType')?.valid}}</div> -->
 
 </form>

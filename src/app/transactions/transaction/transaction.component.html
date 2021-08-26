@@ -1,5 +1,5 @@
-<p>transaction works!</p>
 <app-transaction-view
 [transaction]="transaction$ | async"
-[transactions]="transactions$ | async"
+(updateTransaction)="onUpdateTransaction($event)"
+
 ></app-transaction-view>

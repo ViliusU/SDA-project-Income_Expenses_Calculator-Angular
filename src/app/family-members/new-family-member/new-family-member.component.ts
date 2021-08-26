@@ -26,7 +26,7 @@ export class NewFamilyMemberComponent implements OnInit {
   }
 
   onUpdate(familyMember: FamilyMember): void {
-    console.log(familyMember)
+    // console.log(familyMember)
     this.familyMembersService.createFamilyMember(familyMember).subscribe(
       (newFamilyMember) => this.router.navigate(['familyMembers/familyMember', newFamilyMember.id]))
   }

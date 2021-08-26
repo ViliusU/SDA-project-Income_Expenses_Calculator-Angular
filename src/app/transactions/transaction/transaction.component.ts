@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FamilyMembersService } from 'src/app/family-members/shared/services/family-members.service';
-import { Transaction, TransactionFamilyMember } from '../shared/interfaces/transaction.interface';
+import { TransactionType } from '../shared/interfaces/transaction-type.interface';
+import { Transaction} from '../shared/interfaces/transaction.interface';
+import { TransactionTypeService } from '../shared/services/transaction-type.service';
 import { TransactionsService } from '../shared/services/transactions.service';
 
 @Component({
@@ -12,11 +13,11 @@ import { TransactionsService } from '../shared/services/transactions.service';
 })
 export class TransactionComponent implements OnInit {
   transaction$: Observable<Transaction> | undefined;
-  transactions$: Observable<Transaction[]> | undefined;
 
   constructor(
     private transactionsService: TransactionsService,
     private activatedRoute: ActivatedRoute,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -24,9 +25,13 @@ export class TransactionComponent implements OnInit {
     // console.log(transactionId);
     this.transaction$ = this.transactionsService.getTransactionById(transactionId);
 
-    this.transactions$ = this.transactionsService.getTransactions();
-
     // this.transaction$.subscribe(console.log)
+  }
+
+  onUpdateTransaction(transaction: Transaction): void {
+    this.transactionsService.updateTransaction(transaction).subscribe(
+      ()=> this.router.navigate(['transaction'])
+    )
   }
 
 }

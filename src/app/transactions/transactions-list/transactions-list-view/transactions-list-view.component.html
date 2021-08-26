@@ -14,7 +14,7 @@
     <tbody *ngFor="let transaction of transactions">
       <tr>
         <th scope="row">{{transaction.id}}</th>
-        <td>{{transaction.transactionType}}</td>
+        <td>{{transaction.transactionType.name}}</td>
         <td>{{transaction.description}}</td>
         <td>{{transaction.amount}} €</td>
         <td>{{transaction.transactionDate}}</td>
