@@ -1,22 +1,22 @@
 <div *ngIf = "message" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Success!</strong> New Transaction added
+    <strong>Success!</strong> Transaction updated
     <button (click)="removeMessage()" type="button" data-bs-dismiss="alert" aria-label="Close">X</button>
   </div>
 
-<form [formGroup] ="addTransactionForm" (ngSubmit)="onSubmitButton()">
+<form [formGroup] ="editTransactionForm" (ngSubmit)="onSubmitButton()">
   <fieldset>
 
     <div class="mb-3">
       <label class="form-label">Description</label>
         <input type="text" class="form-control" placeholder=" Enter Description" formControlName="description">
 
-            <div class="error-notification" *ngIf="addTransactionForm.get('description')?.errors?.required">
+            <div class="error-notification" *ngIf="editTransactionForm.get('description')?.errors?.required">
               Description is required!
             </div>
 
-            <div  class="error-notification" *ngIf="addTransactionForm.get('description')?.errors?.maxlength">
-              This field must contain minimum of {{addTransactionForm.get('description')?.errors?.maxlength.requiredLength}}
-              and you entered {{addTransactionForm.get('description')?.errors?.maxlength.actualLength}} characters.
+            <div  class="error-notification" *ngIf="editTransactionForm.get('description')?.errors?.maxlength">
+              This field must contain minimum of {{editTransactionForm.get('description')?.errors?.maxlength.requiredLength}}
+              and you entered {{editTransactionForm.get('description')?.errors?.maxlength.actualLength}} characters.
             </div>
     </div>
 
@@ -25,13 +25,13 @@
         <option value="expense">Amount</option>
           <input type="number" class="form-control" placeholder="Enter the amount of money" formControlName="amount">
 
-              <div class="error-notification" *ngIf="addTransactionForm.get('amount')?.errors?.required">
+              <div class="error-notification" *ngIf="editTransactionForm.get('amount')?.errors?.required">
                 Amount of money is required!
               </div>
               
-              <div class="error-notification" *ngIf="addTransactionForm.get('amount')?.errors?.maxlength">
-                This field must contain minimum of {{addTransactionForm.get('amount')?.errors?.maxlength.requiredLength}}
-                and you entered {{addTransactionForm.get('amount')?.errors?.maxlength.actualLength}} characters.
+              <div class="error-notification" *ngIf="editTransactionForm.get('amount')?.errors?.maxlength">
+                This field must contain minimum of {{editTransactionForm.get('amount')?.errors?.maxlength.requiredLength}}
+                and you entered {{editTransactionForm.get('amount')?.errors?.maxlength.actualLength}} characters.
               </div>
          
     </div>
@@ -40,13 +40,13 @@
       <label class="form-label">Transaction Date</label>
         <input type="date" class="form-control" placeholder=" Enter the date" formControlName="transactionDate">
 
-              <div class="error-notification" *ngIf="addTransactionForm.get('transactionDate')?.errors?.required">
+              <div class="error-notification" *ngIf="editTransactionForm.get('transactionDate')?.errors?.required">
                 Date is required!
               </div>      
     </div>
   </fieldset>
 
-  <fieldset [formGroup]="addTransactionForm.get('familyMember')">
+  <fieldset [formGroup]="editTransactionForm.get('familyMember')">
     <div class="mb-3">
       <label class="form-label">FamilyMember</label>
         <select class="form-select" formControlName="id">
@@ -55,13 +55,13 @@
           </ng-container> 
         </select>
 
-              <div class="error-notification" *ngIf="addTransactionForm.get('familyMember.id')?.errors?.required">
+              <div class="error-notification" *ngIf="editTransactionForm.get('familyMember.id')?.errors?.required">
                 Family member must be selected!
               </div>
     </div>
   </fieldset>
 
-  <fieldset [formGroup]="addTransactionForm.get('transactionType')">
+  <fieldset [formGroup]="editTransactionForm.get('transactionType')">
     <div class="mb-3">
       <label class="form-label">TransactionType</label>
         <select class="form-select" formControlName="id">
@@ -69,7 +69,7 @@
           <option [ngValue]="2">expense</option>
         </select>
 
-              <div class="error-notification" *ngIf="addTransactionForm.get('transactionType.id')?.errors?.required">
+              <div class="error-notification" *ngIf="editTransactionForm.get('transactionType.id')?.errors?.required">
                 Transaction type must be selected!
               </div>
 

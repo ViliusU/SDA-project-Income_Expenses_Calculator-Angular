@@ -4,18 +4,16 @@
         <label>Family member's name:
             <input formControlName="name">
         </label>
-        <div *ngIf="familyMemberForm.get('name')?.errors?.required
-                    ">
-            This field is requred!
-        </div>
-        
-        <div *ngIf="familyMemberForm.get('name')?.errors?.maxlength
-                    ">
-            This field must contain minimum of {{familyMemberForm.get('name')?.errors?.maxlength.requiredLength}}
-            and you entered {{familyMemberForm.get('name')?.errors?.maxlength.actualLength}} characters.
-        </div>
- 
-    </div>
+
+                <div  class="error-notification" *ngIf="familyMemberForm.get('name')?.errors?.required">
+                    This field is requred!
+                </div>
+                
+                <div class="error-notification" *ngIf="familyMemberForm.get('name')?.errors?.maxlength">
+                    This field must contain minimum of {{familyMemberForm.get('name')?.errors?.maxlength.requiredLength}}
+                    and you entered {{familyMemberForm.get('name')?.errors?.maxlength.actualLength}} characters.
+                </div>
+     </div>
     
     <!-- <div>
         {{familyMemberForm.get('name')?.value}}

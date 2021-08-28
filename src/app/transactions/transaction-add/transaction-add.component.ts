@@ -1,5 +1,5 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { FamilyMember } from 'src/app/family-members/shared/inerfaces/familyMember.interface';
 import { FamilyMembersService } from 'src/app/family-members/shared/services/family-members.service';
@@ -22,18 +22,18 @@ export class TransactionAddComponent implements OnInit {
 
 
   addTransactionForm = this.formBuilder.group({
-    description: [],
-    amount:[],
-    transactionDate:[],
+    description: [, [Validators.required, Validators.maxLength(50)]],
+    amount:[, [Validators.required, Validators.maxLength(7)]],
+    transactionDate:[, [Validators.required]],
     familyMember: this.formBuilder.group ({
-      id: [],
+      id: [, [Validators.required]],
     }),
     transactionType: this.formBuilder.group({
-      id: []
+      id: [, [Validators.required]]
     })
   })
 
-  // message: boolean = true;
+  message: boolean = false;
 
   ngOnInit(): void {    
     this.familyMembers$ = this.familyMembersService.getFamilyMembers();
@@ -45,12 +45,12 @@ export class TransactionAddComponent implements OnInit {
     this.transactionsService.createTransaction(newTransaction)
     .subscribe((result)=>{
       console.log(result)
-      // this.message = true;
+      this.message = true;
       this.addTransactionForm.reset();
     })
   }
 
-  // removeMessage(){
-  //   this.message = false;
-  // }
+  removeMessage(){
+    this.message = false;
+  }
 }

@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
 import { TransactionAddComponent } from "./transaction-add/transaction-add.component";
-import { TransactionComponent } from "./transaction/transaction.component";
+import { TransactionEditComponent } from "./transaction-edit/transaction-edit.component";
 import { TransactionsListComponent } from "./transactions-list/transactions-list.component";
 import { TransactionsComponent } from "./transactions.component";
 import { TransactionsPaths } from "./transactions.paths.const";
@@ -26,10 +26,10 @@ export const TransactionsRoutes: Routes = [
             },
             {
                 path:
-                TransactionsPaths.transaction.path
-                // 'transaction/:id'
+                // TransactionsPaths.transaction.path
+                'transaction/:id'
                 ,
-                component: TransactionComponent
+                component: TransactionEditComponent
             },
             {
                 path: 'add',
