@@ -1,11 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FamilyMember } from 'src/app/family-members/shared/inerfaces/familyMember.interface';
 import { FamilyMembersService } from 'src/app/family-members/shared/services/family-members.service';
 import { TransactionType } from '../../shared/interfaces/transaction-type.interface';
 import { Transaction } from '../../shared/interfaces/transaction.interface';
 import { TransactionTypeService } from '../../shared/services/transaction-type.service';
+import { TransactionsService } from '../../shared/services/transactions.service';
+import { TransactionsPaths } from '../../transactions.paths.const';
 
 @Component({
   selector: 'app-transaction-view',
@@ -36,6 +39,8 @@ export class TransactionViewComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private transactionsService: TransactionsService,
+    private router: Router
     // private transactionTypeService: TransactionTypeService,
     // private familyMembersService: FamilyMembersService
 
@@ -60,4 +65,13 @@ export class TransactionViewComponent implements OnInit {
     this.updateTransaction.emit(...this.transaction, ...this.transactionForm.value);
   }
 
+  deleteTransaction(transactionId: number): void{
+    this.transactionsService.deleteTransaction(transactionId).subscribe(()=>{
+      // console.log(result);
+     this.router.navigate([
+       'transactions/list'
+      // TransactionsPaths.transactionsList.path
+      ]);
+    });
+  }
 }

@@ -26,12 +26,5 @@ export class TransactionsListViewComponent implements OnInit {
   }
 
   // 'transactions/transaction'
-
-  deleteTransaction(transactionId: number): void{
-    this.transactionsService.deleteTransaction(transactionId).subscribe(()=>{
-      // console.log(result);
-      this.ngOnInit();
-    })
-  }
-
+  
 }
