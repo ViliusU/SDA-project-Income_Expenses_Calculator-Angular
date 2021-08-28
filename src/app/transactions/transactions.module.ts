@@ -6,6 +6,7 @@ import { TransactionsRoutes } from './transactions.routes';
 import { RouterModule } from '@angular/router';
 import { TransactionModule } from './transaction/transaction.module';
 import { TransactionAddComponent } from './transaction-add/transaction-add.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { TransactionAddComponent } from './transaction-add/transaction-add.compo
     CommonModule,
     TransactionsListModule,
     TransactionModule,
-    RouterModule.forChild(TransactionsRoutes)
+    RouterModule.forChild(TransactionsRoutes),
+    ReactiveFormsModule
   ],
   exports: [TransactionsComponent]
 })

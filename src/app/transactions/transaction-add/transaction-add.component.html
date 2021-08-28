@@ -1,1 +1,53 @@
-<p>transaction-add works!</p>
+<h4>Add New Transaction!</h4>
+
+<!-- <div *ngIf = "message" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Transaction added
+    <button (click)="removeMessage()" type="button" data-bs-dismiss="alert" aria-label="Close">X</button>
+  </div> -->
+
+<form [formGroup] ="addTransactionForm" (ngSubmit)="onSubmitButton()">
+  <fieldset>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+        <input type="text" class="form-control" placeholder=" Enter Desciption" formControlName="description">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label"></label>
+        <option value="expense">Amount</option>
+          <input type="number" class="form-control" placeholder="Enter the amount of money" formControlName="amount">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Transaction Date</label>
+        <input type="date" class="form-control" placeholder=" Enter the date" formControlName="transactionDate">
+    </div>
+
+  </fieldset>
+
+  <fieldset [formGroup]="addTransactionForm.get('familyMember')">
+    <div class="mb-3">
+      <label class="form-label">FamilyMember</label>
+        <select class="form-select" formControlName="id">
+          <ng-container *ngFor="let familyMember of (familyMembers$ | async)">
+            <option [ngValue]="familyMember.id">{{familyMember.name}}</option>
+          </ng-container> 
+        </select>
+    </div>
+  </fieldset>
+
+  <fieldset [formGroup]="addTransactionForm.get('transactionType')">
+    <div class="mb-3">
+      <label class="form-label">TransactionType</label>
+        <select class="form-select" formControlName="id">
+          <option [ngValue]="1">Income</option>
+          <option [ngValue]="2">expense</option>
+        </select>
+    </div>
+  </fieldset>
+      
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+  
