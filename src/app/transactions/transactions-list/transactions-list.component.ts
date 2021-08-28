@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Transaction } from '../shared/interfaces/transaction.interface';
 import { TransactionsService } from '../shared/services/transactions.service';
@@ -13,10 +14,15 @@ export class TransactionsListComponent implements OnInit {
 
   constructor(
     private transactionsService: TransactionsService,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
     this.transactions$ = this.transactionsService.getTransactions();
+  }
+
+  navigateToTransactionAdd(){
+    this.route.navigate(['transactions/add']);
   }
 
 }

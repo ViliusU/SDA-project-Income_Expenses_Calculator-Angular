@@ -4,7 +4,7 @@
         <table class="table">
             <thead >
               <tr>
-                <th scope="col">Transaction id</th>
+                <th scope="col">#</th>
                 <th scope="col">Type</th>
                 <th scope="col">Description</th>
                 <th scope="col">Amount</th>
@@ -64,7 +64,7 @@
                 <td><button type="button" class="btn btn-outline-secondary"
                     [disabled]="!transactionForm.valid"
                     (click)="onSubmitClick">Submit</button>
-                    
+
                     <button type="button" class="btn btn-outline-secondary" (click)="deleteTransaction(transaction.id)">Delete</button>
 
                 </td>

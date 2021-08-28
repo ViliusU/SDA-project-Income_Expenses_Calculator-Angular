@@ -5,11 +5,12 @@ import { TransactionsListModule } from './transactions-list/transactions-list.mo
 import { TransactionsRoutes } from './transactions.routes';
 import { RouterModule } from '@angular/router';
 import { TransactionModule } from './transaction/transaction.module';
+import { TransactionAddComponent } from './transaction-add/transaction-add.component';
 
 
 
 @NgModule({
-  declarations: [TransactionsComponent],
+  declarations: [TransactionsComponent, TransactionAddComponent],
   imports: [
     CommonModule,
     TransactionsListModule,
