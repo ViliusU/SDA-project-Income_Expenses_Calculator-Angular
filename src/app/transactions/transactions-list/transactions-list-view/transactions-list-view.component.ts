@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Transaction } from '../../shared/interfaces/transaction.interface';
+import { TransactionsService } from '../../shared/services/transactions.service';
 import { TransactionsPaths } from '../../transactions.paths.const';
 
 @Component({
@@ -12,11 +13,12 @@ export class TransactionsListViewComponent implements OnInit {
   @Input() transactions: Transaction[] | undefined | null
 
   constructor(
-    private router: Router
+    private router: Router,
+    private transactionsService: TransactionsService
     ) { }
 
   ngOnInit(): void {
-    console.log(this.transactions)
+    // console.log(this.transactions)
   }
 
   navigateToTransactionId(transactionId: number) :void{
@@ -24,5 +26,12 @@ export class TransactionsListViewComponent implements OnInit {
   }
 
   // 'transactions/transaction'
+
+  deleteTransaction(transactionId: number): void{
+    this.transactionsService.deleteTransaction(transactionId).subscribe(()=>{
+      // console.log(result);
+      this.ngOnInit();
+    })
+  }
 
 }

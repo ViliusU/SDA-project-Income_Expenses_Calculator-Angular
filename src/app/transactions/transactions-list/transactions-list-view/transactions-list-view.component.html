@@ -20,7 +20,7 @@
         <td>{{transaction.transactionDate}}</td>
         <td>{{transaction.familyMember.name}}</td>
         <td><button type="button" class="btn btn-outline-secondary" (click)="navigateToTransactionId(transaction.id)">Edit</button>
-            <button type="button" class="btn btn-outline-secondary">Delete</button>
+            <button type="button" class="btn btn-outline-secondary" (click)="deleteTransaction(transaction.id)">Delete</button>
         </td>
       </tr>
     </tbody>
