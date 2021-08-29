@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Transaction } from '../../shared/interfaces/transaction.interface';
 import { TransactionsService } from '../../shared/services/transactions.service';
-import { TransactionsPaths } from '../../transactions.paths.const';
 
 @Component({
   selector: 'app-transactions-list-view',

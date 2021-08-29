@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import { FamilyMember } from 'src/app/family-members/shared/inerfaces/familyMember.interface';
 import { FamilyMembersService } from 'src/app/family-members/shared/services/family-members.service';
@@ -16,24 +16,12 @@ export class TransactionEditComponent implements OnInit {
   familyMembers$: Observable<FamilyMember[]> | undefined | null;
 
   constructor(
-    private formBuilder: FormBuilder,
     private familyMembersService: FamilyMembersService,
     private transactionsService: TransactionsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
-
-  // editTransactionForm = this.formBuilder.group({
-  //   description: [, [Validators.required, Validators.maxLength(50)]],
-  //   amount:[, [Validators.required, Validators.maxLength(7)]],
-  //   transactionDate:[, [Validators.required]],
-  //   familyMember: this.formBuilder.group ({
-  //     id: [, [Validators.required]],
-  //   }),
-  //   transactionType: this.formBuilder.group({
-  //     id: [, [Validators.required]]
-  //   })
-  // })
-
+ 
   editTransactionForm = new FormGroup({
     description: new FormControl(''),
     amount:new FormControl(''),
@@ -46,12 +34,10 @@ export class TransactionEditComponent implements OnInit {
     })
   })
 
-
   message: boolean = false;
 
   ngOnInit(): void {
     this.familyMembers$ = this.familyMembersService.getFamilyMembers();
-
     const transactionId = this.activatedRoute.snapshot.params.id;
 
     this.transactionsService.getTransactionById(transactionId).subscribe((result:any)=>{
@@ -62,16 +48,17 @@ export class TransactionEditComponent implements OnInit {
           transactionDate:new FormControl(result['transactionDate']),
           familyMember: new FormGroup ({
               id: new FormControl(result['id']),
+              name: new FormControl(result['name'])
             }),
           transactionType: new FormGroup({
-              id: new FormControl(result['id'])
+              id: new FormControl(result['id']),
+              name: new FormControl(result['name'])
             })  
       })
     })
   }
 
   onSubmitButton(){
-    const transactionId = this.activatedRoute.snapshot.params.id;
     this.transactionsService.updateTransaction(this.editTransactionForm.value)
     .subscribe(()=>{
       console.log()
@@ -81,5 +68,15 @@ export class TransactionEditComponent implements OnInit {
 
   removeMessage(){
     this.message = false;
+  }
+
+  transactionId = this.activatedRoute.snapshot.params.id;
+
+  deleteTransaction(transactionId: number): void{
+    this.transactionsService.deleteTransaction(transactionId).subscribe(()=>{
+      // console.log();
+      // this.ngOnInit();
+      this.router.navigate(['transactions']);
+    })
   }
 }

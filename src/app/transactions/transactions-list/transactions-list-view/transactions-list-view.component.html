@@ -19,7 +19,8 @@
         <td>{{transaction.amount}} €</td>
         <td>{{transaction.transactionDate}}</td>
         <td>{{transaction.familyMember.name}}</td>
-        <td><button type="button" class="btn btn-outline-secondary" (click)="navigateToTransactionId(transaction.id)">Edit</button>
+        <td>
+            <button type="button" class="btn btn-outline-secondary" (click)="navigateToTransactionId(transaction.id)">Edit</button>
         </td>
       </tr>
     </tbody>
