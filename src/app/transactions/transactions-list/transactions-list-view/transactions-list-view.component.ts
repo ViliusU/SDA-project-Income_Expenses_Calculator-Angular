@@ -17,7 +17,8 @@ export class TransactionsListViewComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // console.log(this.transactions)
+
+      // console.log(this.transactions)
   }
 
   navigateToTransactionId(transactionId: number) :void{

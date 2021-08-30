@@ -9,6 +9,7 @@ import { HeaderModule } from './header/header.module';
 import { StatisticsModule } from './statistics/statistics.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { FamilyMembersService } from './family-members/shared/services/family-members.service';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FamilyMembersService } from './family-members/shared/services/family-me
     FamilyMembersModule,
     TransactionsModule,
     StatisticsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
   ],
   providers: [FamilyMembersService],
   bootstrap: [AppComponent]
