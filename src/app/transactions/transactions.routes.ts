@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { TransactionAddComponent } from "./transaction-add/transaction-add.component";
 import { TransactionEditComponent } from "./transaction-edit/transaction-edit.component";
-import { TransactionsListComponent } from "./transactions-list/transactions-list.component";
+import { TransactionListComponent } from "./transaction-list/transaction-list.component";
 import { TransactionsComponent } from "./transactions.component";
 import { TransactionsPaths } from "./transactions.paths.const";
 
@@ -22,7 +22,7 @@ export const TransactionsRoutes: Routes = [
                 TransactionsPaths.transactionsList.path
                 // 'list'
                 ,
-                component: TransactionsListComponent
+                component: TransactionListComponent
             },
             {
                 path:

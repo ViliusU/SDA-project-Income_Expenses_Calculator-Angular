@@ -7,14 +7,14 @@ import { RouterModule } from '@angular/router';
 import { TransactionAddComponent } from './transaction-add/transaction-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TransactionEditComponent } from './transaction-edit/transaction-edit.component';
+import { TransactionListComponent } from './transaction-list/transaction-list.component';
 
 
 
 @NgModule({
-  declarations: [TransactionsComponent, TransactionAddComponent, TransactionEditComponent],
+  declarations: [TransactionsComponent, TransactionAddComponent, TransactionEditComponent, TransactionListComponent],
   imports: [
     CommonModule,
-    TransactionsListModule,
     RouterModule.forChild(TransactionsRoutes),
     ReactiveFormsModule
   ],
