@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TransactionsComponent } from './transactions.component';
-import { TransactionsListModule } from './transactions-list/transactions-list.module';
 import { TransactionsRoutes } from './transactions.routes';
 import { RouterModule } from '@angular/router';
 import { TransactionAddComponent } from './transaction-add/transaction-add.component';
@@ -18,6 +17,6 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
     RouterModule.forChild(TransactionsRoutes),
     ReactiveFormsModule
   ],
-  exports: [TransactionsComponent]
+  exports: [TransactionsComponent],
 })
 export class TransactionsModule { }

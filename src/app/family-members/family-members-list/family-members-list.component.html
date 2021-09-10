@@ -1,5 +1,5 @@
-<div class="buton">
-  <button (click)="navigateToNewFamilyMember()">Add new user</button>
+<div class="button" (click)="navigateToNewFamilyMember()">
+  <button type="button" class="btn btn-outline-dark">Add new family member</button>
 </div>
 
 <app-family-members-list-view [familyMembers]="familyMembers$ | async"></app-family-members-list-view>
