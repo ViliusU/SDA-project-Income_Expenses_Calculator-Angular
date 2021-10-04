@@ -12,7 +12,8 @@ import { TransactionsService } from '../shared/services/transactions.service';
 export class TransactionListComponent implements OnInit {
 
   transactions:any=[];
-  public p: number = 1;
+  public page: number = 1;
+  public pageSize: number = 10;
 
   constructor(
     private route: Router,
