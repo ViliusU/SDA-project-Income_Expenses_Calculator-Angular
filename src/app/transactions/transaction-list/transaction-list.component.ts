@@ -12,6 +12,7 @@ import { TransactionsService } from '../shared/services/transactions.service';
 export class TransactionListComponent implements OnInit {
 
   transactions:any=[];
+  public p: number = 1;
 
   constructor(
     private route: Router,
@@ -22,10 +23,10 @@ export class TransactionListComponent implements OnInit {
     this.transactionsService.getTransactions()
     .subscribe((transactionsData)=> {
       console.log(transactionsData)
-      this.transactions = transactionsData; 
+      this.transactions = transactionsData;
     });
   }
-  
+
   navigateToTransactionAdd(){
     this.route.navigate(['transactions/add']);
   }

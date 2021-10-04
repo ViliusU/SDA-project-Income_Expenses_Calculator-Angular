@@ -7,6 +7,7 @@ import { TransactionAddComponent } from './transaction-add/transaction-add.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { TransactionEditComponent } from './transaction-edit/transaction-edit.component';
 import { TransactionListComponent } from './transaction-list/transaction-list.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 
@@ -15,7 +16,8 @@ import { TransactionListComponent } from './transaction-list/transaction-list.co
   imports: [
     CommonModule,
     RouterModule.forChild(TransactionsRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   exports: [TransactionsComponent],
 })

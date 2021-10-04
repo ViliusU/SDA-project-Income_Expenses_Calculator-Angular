@@ -1,32 +1,43 @@
 <div class="button" (click)="navigateToTransactionAdd()">
-    <button type="button" class="btn btn-outline-dark">Add new transaction</button>
+  <button type="button" class="btn btn-outline-dark">Add new transaction</button>
 </div>
 
-<div class="table" >
-    <table class="table table-hover">
-        <thead >
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Type</th>
-            <th scope="col">Description</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Date</th>
-            <th scope="col">FamilyMember</th>
-            <th scope="col"></th>      
-          </tr>
-        </thead>
-        <tbody *ngFor="let transaction of transactions">
-          <tr>
-            <th scope="row">{{transaction.id}}</th>
-            <td>{{transaction.transactionType.name}}</td>
-            <td>{{transaction.description}}</td>
-            <td>{{transaction.amount}} €</td>
-            <td>{{transaction.transactionDate}}</td>
-            <td>{{transaction.familyMember.name}}</td>
-            <td>
-                <button type="button" class="btn btn-outline-secondary" (click)="navigateToTransactionId(transaction.id)">Edit</button>
-            </td>
-          </tr>
-        </tbody>
-    </table>
+<div class="table">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Type</th>
+      <th scope="col">Description</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>
+      <th scope="col">FamilyMember</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let transaction of transactions | paginate :{itemsPerPage: 10, currentPage: p }">
+    <tr>
+      <th scope="row">{{transaction.id}}</th>
+      <td>{{transaction.transactionType.name}}</td>
+      <td>{{transaction.description}}</td>
+      <td>{{transaction.amount}} €</td>
+      <td>{{transaction.transactionDate}}</td>
+      <td>{{transaction.familyMember.name}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary" (click)="navigateToTransactionId(transaction.id)">Edit
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination-controls
+    *ngIf="transactions?.length > 11"
+    responsive="true"
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="p = $event">
+  </pagination-controls>
 </div>
