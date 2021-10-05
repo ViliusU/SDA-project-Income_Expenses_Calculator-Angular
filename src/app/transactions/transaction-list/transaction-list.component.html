@@ -17,9 +17,9 @@
     </thead>
     <tbody *ngFor="let transaction of transactions | paginate :{itemsPerPage: pageSize, currentPage: page}">
     <tr>
-      <th scope="row">{{transaction.id}}</th>
-      <td>{{transaction.transactionType.name}}</td>
-      <td>{{transaction.description}}</td>
+      <th scope="row" style="width: 40px;">{{transaction.id}}</th>
+      <td style="width: 80px;">{{transaction.transactionType.name}}</td>
+      <td style="width: 380px;">{{transaction.description}}</td>
       <td>{{transaction.amount}} €</td>
       <td>{{transaction.transactionDate}}</td>
       <td>{{transaction.familyMember.name}}</td>
@@ -34,7 +34,7 @@
 
 <div class="d-flex justify-content-center d">
   <pagination-controls
-    *ngIf="transactions?.length > 11"
+    *ngIf="transactions?.length > 10"
     responsive="true"
     previousLabel="Prev"
     nextLabel="Next"
