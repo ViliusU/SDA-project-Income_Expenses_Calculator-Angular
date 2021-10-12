@@ -23,7 +23,7 @@
     <div class="mb-3">
       <label class="form-label"></label>
         <option value="expense">Amount</option>
-          <input type="number" class="form-control" placeholder="Enter the amount of money" formControlName="amount">
+          <input type="number" step="0.01" DecimalPlaces="2" min="0.00" class="form-control" placeholder="Enter the amount of money" formControlName="amount">
 
               <div class="error-notification" *ngIf="addTransactionForm.get('amount')?.errors?.required">
                 Amount of money is required!
